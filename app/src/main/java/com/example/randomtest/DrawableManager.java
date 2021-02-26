@@ -147,6 +147,7 @@ public class DrawableManager {
 
         /**
          * 创建drawable
+         * 这个可以用在glide的placeholder（drawable)中，没有效果，暂时不知道什么原因，使用ColorDrawable可以
          * @return
          */
         private ShapeDrawable createDrawable(String color) {

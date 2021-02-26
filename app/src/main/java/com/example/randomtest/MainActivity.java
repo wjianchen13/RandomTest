@@ -35,28 +35,35 @@ public class MainActivity extends AppCompatActivity {
     public void onTest(View v) {
         Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
 //        imgvTest.setEnabled(false);
-        imgvTest.setBackground(DrawableManager.getInstance().getDrawable(20));
+//        imgvTest.setBackground(new MyColorDrawable(Color.RED));
+        imgvTest.setBackground(new CornerDrawable(Color.RED));
         
 //        println("3.21: " + Math.round(3.21) + "  3.65: " + Math.round(3.65)); 
     }
     
-
-
     public void onTest1(View v) {
         String color = getRandomColor();
         println("color: " + color);
     }
-    
+
+    /**
+     * 生成随机颜色值
+     * @return
+     */
     public String getRandomColor() {
-//        String color = "0xff";
         StringBuilder sb = new StringBuilder("#ff");
         sb.append(Integer.toHexString(getRandom(100, 201)));
         sb.append(Integer.toHexString(getRandom(100, 201)));
         sb.append(Integer.toHexString(getRandom(100, 201)));
         return sb.toString();
     }
-    
 
+    /**
+     * 生成随机数【start，end)
+     * @param start
+     * @param end
+     * @return
+     */
     public int getRandom(int start, int end) {
         if(end < start)
             return start;
@@ -77,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         RectF distanceRectF = new RectF(10, 10, 10, 10); //内部矩形与外部矩形的距离
         float[] insideRound = {10, 10, 10, 10, 10, 10, 10, 10}; //内部矩形的8个圆角半径值
         ShapeDrawable shapeDrawable = new ShapeDrawable(new RoundRectShape(externalRound, null, null));
-//        shapeDrawable.getPaint().setColor(Color.parseColor());
+        shapeDrawable.getPaint().setColor(Color.parseColor("#ff00ff00"));
         Rect rect = new Rect();
         rect.top = 0;
         rect.left = 0;
@@ -94,12 +101,12 @@ public class MainActivity extends AppCompatActivity {
     private ShapeDrawable getRectDrawable() {
         ShapeDrawable shapeDrawable = new ShapeDrawable(new RectShape());
         shapeDrawable.getPaint().setColor(Color.RED);
-//        Rect rect = new Rect();
-//        rect.top = 0;
-//        rect.left = 0;
-//        rect.bottom = 50;
-//        rect.right = 50;
-//        shapeDrawable.setBounds(rect);
+        Rect rect = new Rect();
+        rect.top = 0;
+        rect.left = 0;
+        rect.bottom = 50;
+        rect.right = 50;
+        shapeDrawable.setBounds(rect);
         return shapeDrawable;
     }
 
