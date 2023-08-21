@@ -42,8 +42,18 @@ public class MainActivity extends AppCompatActivity {
     }
     
     public void onTest1(View v) {
-        String color = getRandomColor();
-        println("color: " + color);
+//        String color = getRandomColor();
+//        println("color: " + color);
+        int random = getRandom(0, 10);
+        System.out.println("==============> random: " + random);
+    }
+
+    public void onTest2(View v) {
+        Random random = new Random();
+        for(int i = 0; i < 100; i ++) {
+            int num = random.nextInt(10);
+            println(num + "");
+        }
     }
 
     /**
